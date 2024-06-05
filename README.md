@@ -14,4 +14,3 @@ Extra:
 
 - wird wahrs. ein CLI
 - funktion soll eine hierarchie von parametern als input haben, kann aber auch ein einzelner parameter sein
-- das ist ein test
