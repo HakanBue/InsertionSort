@@ -18,7 +18,7 @@ class Bug:
 
 def read_csv_to_bugs(csv_file_path):
     bugs = []
-    with open(csv_file_path ,mode='r', codierung ='unicode') as file:
+    with open(csv_file_path ,mode='r', codierung ='utf-8') as file:
         reader = csv.DictReader(file)
         for row in reader:
             bug = Bug(bug_id['Bug-ID'],erstellungsdatum['Erstellungsdatum'],schweregrad['Schweregrad'],status['Status'], beschreibung['Beschreibung'], priorität['Priorität'], gepBehebungsdatum['Geplantes Behebungsdatum'], tatBehebungsdatum['Tatsächliches Behebungsdatum'], kategorie['Kategorie'], auswirkung['Auswirkung'], reproduktionsrate['Reproduktionsrate'], sprints['Voraussichtliche Sprints bis Behebung (in Wochen)'], betNutzer['Beeinträchtigte Nutzer'])
@@ -26,7 +26,7 @@ def read_csv_to_bugs(csv_file_path):
             return bugs
 
 
-csv_file_path = "C:\Users\luzic\PycharmProjects\insertionPlotV1.1\.venv\daten.csv"
+csv_file_path = "Bugreport.csv"
 bugs = read_csv_to_bugs(csv_file_path)
 for bug in bugs:
     print(vars(bug))

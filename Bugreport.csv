@@ -1,0 +1,38 @@
+Bug-ID;Erstellungsdatum;Schweregrad;Status;Beschreibung;Priorität;Geplantes Behebungsdatum;Tatsächliches Behebungsdatum;Kategorie;Auswirkung;Reproduktionsrate;Voraussichtliche Sprints bis Behebung (in Wochen);Beeinträchtigte Nutzer
+301;2.052.024;Mittel;In Bearbeitung;Layout-Probleme in der Fußzeile der Homepage;Hoch;23.052.024;;;UI;Niedrig;3;9491
+302;10.052.024;Mittel;Neu;Sicherheitsrichtlinien werden nicht durchgesetzt;Hoch;14.052.024;;;Sicherheit;Niedrig;0,5;8794
+303;29.042.024;Hoch;In Bearbeitung;Fehlerhafte Anzeige von Datumsformaten in Berichten;Sehr hoch;10.052.024;;;UI;Hoch;1,5;476
+304;7.052.024;Kritisch;Gelöst;Systemausfall bei hoher Last;Mittel;21.052.024;22.052.024;;Backend;Niedrig;2;4672
+305;20.042.024;Niedrig;Gelöst;Unzureichende Verschlüsselung von Nutzerdaten;Mittel;4.052.024;8.052.024;;Sicherheit;Mittel;2;3688
+301;2.052.024;Mittel;In Bearbeitung;Layout-Probleme in der Fußzeile der Homepage;Hoch;23.052.024;;;UI;Niedrig;2;9491
+302;10.052.024;Mittel;Neu;Sicherheitsrichtlinien werden nicht durchgesetzt;Hoch;14.052.024;;;Sicherheit;Niedrig;3;8794
+303;29.042.024;Hoch;In Bearbeitung;Fehlerhafte Anzeige von Datumsformaten in Berichten;Sehr hoch;10.052.024;;;UI;Hoch;0,5;476
+304;7.052.024;Kritisch;Gelöst;Systemausfall bei hoher Last;Mittel;21.052.024;;;Backend;Niedrig;4;4672
+305;20.042.024;Niedrig;Gelöst;Unzureichende Verschlüsselung von Nutzerdaten;Mittel;4.052.024;9.052.024;;Sicherheit;Mittel;4;3688
+306;30.042.024;Mittel;Neu;Probleme mit der Benutzeranmeldung;Hoch;20.052.024;;;UI;Hoch;1;6544
+307;4.052.024;Hoch;In Bearbeitung;Langsame Ladezeiten auf der Startseite;Sehr hoch;18.052.024;;;Backend;Hoch;2;8372
+308;1.052.024;Niedrig;Gelöst;Fehlende Übersetzungen in der Benutzeroberfläche;Mittel;5.052.024;4.062.024;;UI;Mittel;2;3849
+309;25.042.024;Mittel;Neu;Inkonsistente Schriftarten auf verschiedenen Seiten;Hoch;12.052.024;;;UI;Hoch;1;2847
+310;6.052.024;Hoch;In Bearbeitung;Fehler beim Hochladen von Dateien;Sehr hoch;24.052.024;;;Backend;Hoch;3;3847
+311;26.042.024;Niedrig;Gelöst;Unregelmäßige Abmeldungen von Nutzersitzungen;Mittel;11.052.024;18.052.024;;UI;Mittel;0,5;9491
+312;5.052.024;Mittel;Neu;Probleme mit der Passwortzurücksetzung;Hoch;19.052.024;;;Sicherheit;Niedrig;3;8794
+313;27.042.024;Hoch;In Bearbeitung;Unvollständige Suchergebnisse;Sehr hoch;13.052.024;;;UI;Hoch;1;476
+314;8.052.024;Kritisch;Gelöst;Anzeigefehler in der mobilen Version;Mittel;22.052.024;25.052.024;;UI;Niedrig;0,5;4672
+315;28.042.024;Niedrig;Gelöst;Probleme bei der Zwei-Faktor-Authentifizierung;Mittel;6.052.024;7.052.024;;Sicherheit;Mittel;1;3688
+316;9.052.024;Mittel;Neu;Abstürze bei der Nutzung von Drittanbieter-Plugins;Hoch;17.052.024;;;Backend;Hoch;2;6544
+317;5.052.024;Mittel;Neu;Probleme mit der Passwortzurücksetzung;Hoch;19.052.024;;;Sicherheit;Niedrig;1,5;8794
+318;21.042.024;Hoch;In Bearbeitung;Langsame Antwortzeiten der API;Sehr hoch;9.052.024;;;Backend;Hoch;2;8372
+319;3.052.024;Niedrig;Gelöst;Fehlende Bestätigungsnachrichten bei Aktionen;Mittel;15.052.024;30.052.024;;UI;Mittel;1;3849
+320;22.042.024;Mittel;Neu;Probleme mit der Bildanzeige in der Galerie;Hoch;8.052.024;;;UI;Hoch;0,5;2847
+321;4.052.024;Hoch;In Bearbeitung;Fehlerhafte Berechtigungen für Benutzerrollen;Sehr hoch;16.052.024;;;Backend;Hoch;2;3847
+322;23.042.024;Niedrig;Gelöst;Unzureichende Protokollierung von Ereignissen;Mittel;7.052.024;30.052.024;;Backend;Mittel;1;9491
+323;2.052.024;Mittel;Neu;Probleme mit der Synchronisation von Daten;Hoch;23.052.024;;;UI;Hoch;0,5;8794
+324;24.042.024;Hoch;In Bearbeitung;Fehler bei der Datensicherung;Sehr hoch;14.052.024;;;Backend;Hoch;4;476
+325;10.052.024;Kritisch;Gelöst;Probleme mit der Darstellung von Diagrammen;Mittel;20.052.024;1.062.024;;UI;Niedrig;2;4672
+326;25.042.024;Niedrig;Gelöst;Unvollständige Ladeanzeige;Mittel;11.052.024;;;Backend;Mittel;0,5;3688
+327;6.052.024;Mittel;Neu;Fehler bei der Anzeige von Benachrichtigungen;Hoch;19.052.024;;;UI;Hoch;1;6544
+328;26.042.024;Hoch;In Bearbeitung;Probleme mit der Nutzerregistrierung;Sehr hoch;13.052.024;;;Backend;Hoch;2;8372
+329;7.052.024;Niedrig;Gelöst;Unzureichende Fehlermeldungen;Mittel;22.052.024;1.062.024;;UI;Mittel;1;3849
+330;27.042.024;Mittel;Neu;Probleme bei der Anzeige von Videos;Hoch;6.052.024;;;UI;Hoch;0,75;2847
+331;8.052.024;Hoch;In Bearbeitung;Fehlerhafte Anzeige von Schaltflächen;Sehr hoch;17.052.024;;;UI;Hoch;0,75;3847
+332;10.052.024;Mittel;In Bearbeitung;Sicherheitsrichtlinien werden nicht durchgesetzt;Hoch;14.052.024;;;Sicherheit;Niedrig;1,25;8794
