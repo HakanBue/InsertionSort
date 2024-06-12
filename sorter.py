@@ -12,7 +12,7 @@ def insertionSort(arr):
             arr[j+1] = arr[j]  # Werte werden nach rechts verschoben
             j -= 1
         arr[j+1] = key  # Key wird in der richtigen Position eingefügt 
-
+    
 
 
 test_list = [73, 52, 66, 41, 12, 18, 4, 19]
