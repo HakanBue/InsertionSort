@@ -1,32 +1,51 @@
 import csv
 
-class Bug:
-    def __init__(self, bug_id, erstellungsdatum, schweregrad, status, beschreibung, priorität, gepBehebungsdatum, tatBehebungsdatum, kategorie, auswirkung, reproduktionsrate, sprints, betNutzer):
+
+class Bugs:
+    def __init__(self, bug_id, creation_date, severity, status, discription, priority, pl_resolved_date, resolve_date, kategory, reproductionrate, sprints, user):
         self.bug_id = bug_id
-        self.erstellungsdatum = erstellungsdatum
-        self.schweregrad = schweregrad
+        self.creation_date = creation_date
+        self.severity = severity
         self.status = status
-        self.beschreibung = beschreibung
-        self.priorität = priorität
-        self.gepBehebungsdatum = gepBehebungsdatum
-        self.tatBehebungsdatum = tatBehebungsdatum
-        self.kategorie = kategorie
-        self.auswirkung = auswirkung
-        self.reproduktionsrate = reproduktionsrate
+        self.discription = discription
+        self.priority = priority
+        self.pl_resolve_date = pl_resolved_date
+        self.resolve_date = resolve_date
+        self.kategory = kategory
+        self.reproductionrate = reproductionrate
         self.sprints = sprints
-        self.betNutzer = betNutzer
+        self.user = user
 
-def read_csv_to_bugs(csv_file_path):
-    bugs = []
-    with open(csv_file_path ,mode='r', codierung ='utf-8') as file:
-        reader = csv.DictReader(file)
+
+def read_csv_to_bugs(csv_file_path, delimiter=';'):
+    bugs_list = []
+
+    with open(csv_file_path, newline='') as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=delimiter)
         for row in reader:
-            bug = Bug(bug_id['Bug-ID'],erstellungsdatum['Erstellungsdatum'],schweregrad['Schweregrad'],status['Status'], beschreibung['Beschreibung'], priorität['Priorität'], gepBehebungsdatum['Geplantes Behebungsdatum'], tatBehebungsdatum['Tatsächliches Behebungsdatum'], kategorie['Kategorie'], auswirkung['Auswirkung'], reproduktionsrate['Reproduktionsrate'], sprints['Voraussichtliche Sprints bis Behebung (in Wochen)'], betNutzer['Beeinträchtigte Nutzer'])
-            bugs.append(bug)
-            return bugs
+            bug = Bugs(
+                bug_id=row['Bug-ID'],
+                creation_date=row['Erstellungsdatum'],
+                severity=row['Schweregrad'],
+                status=row['Status'],
+                discription=row['Beschreibung'],
+                priority=row['Priorität'],
+                pl_resolved_date=row['Geplantes Behebungsdatum'],
+                resolve_date=row['Tatsächliches Behebungsdatum'],
+                kategory=row['Kategorie'],
+                reproductionrate=row['Reproduktionsrate'],
+                sprints=row['Voraussichtliche Sprints bis Behebung (in Wochen)'],
+                user=row['Beeinträchtigte Nutzer']
+            )
+            bugs_list.append(bug)
+
+    return bugs_list
 
 
-csv_file_path = "Bugreport.csv"
-bugs = read_csv_to_bugs(csv_file_path)
-for bug in bugs:
+# Beispielverwendung
+csv_file_path = 'Bugreport.csv'
+bugs_list = read_csv_to_bugs(csv_file_path)
+
+# Überprüfung der ersten Einträge
+for bug in bugs_list[:5]:
     print(vars(bug))
