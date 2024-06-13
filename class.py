@@ -2,7 +2,8 @@ import csv
 
 
 class Bugs:
-    def __init__(self, bug_id, creation_date, severity, status, discription, priority, pl_resolved_date, resolve_date, kategory, reproductionrate, sprints, user):
+    def __init__(self, bug_id, creation_date, severity, status, discription, priority, pl_resolved_date, resolve_date,
+                 kategory, reproductionrate, sprints, user):
         self.bug_id = bug_id
         self.creation_date = creation_date
         self.severity = severity

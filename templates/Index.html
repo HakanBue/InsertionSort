@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Select Bug Attributes</h1>
+    <form id="attributeForm">
+        <label for="attribute1">Attribute 1:</label>
+        <select id="attribute1" name="attribute1">
+            <option value="">Select an attribute</option>
+            {% for attribute in bug_attributes %}
+            <option value="{{ attribute }}">{{ attribute }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label for="attribute2">Attribute 2:</label>
+        <select id="attribute2" name="attribute2">
+            <option value="">Select an attribute</option>
+            {% for attribute in bug_attributes %}
+            <option value="{{ attribute }}">{{ attribute }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <button type="button" id="submitBtn">Submit</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $('#attribute1').change(function() {
+                var selectedValue = $(this).val();
+                $('#attribute2 option').each(function() {
+                    $(this).show();
+                    if ($(this).val() == selectedValue) {
+                        $(this).hide();
+                    }
+                });
+            });
+
+            $('#submitBtn').click(function() {
+                var attribute1 = $('#attribute1').val();
+                var attribute2 = $('#attribute2').val();
+
+                $.ajax({
+                    url: '/submit',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        attribute1: attribute1,
+                        attribute2: attribute2
+                    }),
+                    success: function(response) {
+                        alert('Response from server: ' + response.message);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
