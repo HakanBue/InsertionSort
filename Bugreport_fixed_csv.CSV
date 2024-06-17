@@ -1,0 +1,38 @@
+Bug-ID;Erstellungsdatum;Schweregrad;Status;Beschreibung;Priorität;Geplantes Behebungsdatum;Tatsächliches Behebungsdatum;Kategorie;Auswirkung;Reproduktionsrate;Voraussichtliche Sprints bis Behebung (in Wochen);Beeinträchtigte Nutzer
+301;02.05.2024;Mittel;In Bearbeitung;Layout-Probleme in der Fußzeile der Homepage;Hoch;23.05.2024;;;UI;Niedrig;3;9491
+302;10.05.2024;Mittel;Neu;Sicherheitsrichtlinien werden nicht durchgesetzt;Hoch;14.05.2024;;;Sicherheit;Niedrig;0,5;8794
+303;29.04.2024;Hoch;In Bearbeitung;Fehlerhafte Anzeige von Datumsformaten in Berichten;Sehr hoch;10.05.2024;;;UI;Hoch;1,5;476
+304;07.05.2024;Kritisch;Gelöst;Systemausfall bei hoher Last;Mittel;21.05.2024;22.05.2024;;Backend;Niedrig;2;4672
+305;20.04.2024;Niedrig;Gelöst;Unzureichende Verschlüsselung von Nutzerdaten;Mittel;04.05.2024;08.05.2024;;Sicherheit;Mittel;2;3688
+333;02.05.2024;Mittel;In Bearbeitung;Layout-Probleme in der Fußzeile der Homepage;Hoch;23.05.2024;;;UI;Niedrig;2;9491
+334;10.05.2024;Mittel;Neu;Sicherheitsrichtlinien werden nicht durchgesetzt;Hoch;14.05.2024;;;Sicherheit;Niedrig;3;8794
+335;29.04.2024;Hoch;In Bearbeitung;Fehlerhafte Anzeige von Datumsformaten in Berichten;Sehr hoch;10.05.2024;;;UI;Hoch;0,5;476
+336;07.05.2024;Kritisch;Gelöst;Systemausfall bei hoher Last;Mittel;21.05.2024;;;Backend;Niedrig;4;4672
+337;20.04.2024;Niedrig;Gelöst;Unzureichende Verschlüsselung von Nutzerdaten;Mittel;04.05.2024;09.05.2024;;Sicherheit;Mittel;4;3688
+306;30.04.2024;Mittel;Neu;Probleme mit der Benutzeranmeldung;Hoch;20.05.2024;;;UI;Hoch;1;6544
+307;04.05.2024;Hoch;In Bearbeitung;Langsame Ladezeiten auf der Startseite;Sehr hoch;18.05.2024;;;Backend;Hoch;2;8372
+308;01.05.2024;Niedrig;Gelöst;Fehlende Übersetzungen in der Benutzeroberfläche;Mittel;05.05.2024;04.06.2024;;UI;Mittel;2;3849
+309;25.04.2024;Mittel;Neu;Inkonsistente Schriftarten auf verschiedenen Seiten;Hoch;12.05.2024;;;UI;Hoch;1;2847
+310;06.05.2024;Hoch;In Bearbeitung;Fehler beim Hochladen von Dateien;Sehr hoch;24.05.2024;;;Backend;Hoch;3;3847
+311;26.04.2024;Niedrig;Gelöst;Unregelmäßige Abmeldungen von Nutzersitzungen;Mittel;11.05.2024;18.05.2024;;UI;Mittel;0,5;9491
+312;05.05.2024;Mittel;Neu;Probleme mit der Passwortzurücksetzung;Hoch;19.05.2024;;;Sicherheit;Niedrig;3;8794
+313;27.04.2024;Hoch;In Bearbeitung;Unvollständige Suchergebnisse;Sehr hoch;13.05.2024;;;UI;Hoch;1;476
+314;08.05.2024;Kritisch;Gelöst;Anzeigefehler in der mobilen Version;Mittel;22.05.2024;25.05.2024;;UI;Niedrig;0,5;4672
+315;28.04.2024;Niedrig;Gelöst;Probleme bei der Zwei-Faktor-Authentifizierung;Mittel;06.05.2024;07.05.2024;;Sicherheit;Mittel;1;3688
+316;09.05.2024;Mittel;Neu;Abstürze bei der Nutzung von Drittanbieter-Plugins;Hoch;17.05.2024;;;Backend;Hoch;2;6544
+317;05.05.2024;Mittel;Neu;Probleme mit der Passwortzurücksetzung;Hoch;19.05.2024;;;Sicherheit;Niedrig;1,5;8794
+318;21.04.2024;Hoch;In Bearbeitung;Langsame Antwortzeiten der API;Sehr hoch;09.05.2024;;;Backend;Hoch;2;8372
+319;03.05.2024;Niedrig;Gelöst;Fehlende Bestätigungsnachrichten bei Aktionen;Mittel;15.05.2024;30.05.2024;;UI;Mittel;1;3849
+320;22.04.2024;Mittel;Neu;Probleme mit der Bildanzeige in der Galerie;Hoch;08.05.2024;;;UI;Hoch;0,5;2847
+321;04.05.2024;Hoch;In Bearbeitung;Fehlerhafte Berechtigungen für Benutzerrollen;Sehr hoch;16.05.2024;;;Backend;Hoch;2;3847
+322;23.04.2024;Niedrig;Gelöst;Unzureichende Protokollierung von Ereignissen;Mittel;07.05.2024;30.05.2024;;Backend;Mittel;1;9491
+323;02.05.2024;Mittel;Neu;Probleme mit der Synchronisation von Daten;Hoch;23.05.2024;;;UI;Hoch;0,5;8794
+324;24.04.2024;Hoch;In Bearbeitung;Fehler bei der Datensicherung;Sehr hoch;14.05.2024;;;Backend;Hoch;4;476
+325;10.05.2024;Kritisch;Gelöst;Probleme mit der Darstellung von Diagrammen;Mittel;20.05.2024;01.06.2024;;UI;Niedrig;2;4672
+326;25.04.2024;Niedrig;Gelöst;Unvollständige Ladeanzeige;Mittel;11.05.2024;;;Backend;Mittel;0,5;3688
+327;06.05.2024;Mittel;Neu;Fehler bei der Anzeige von Benachrichtigungen;Hoch;19.05.2024;;;UI;Hoch;1;6544
+328;26.04.2024;Hoch;In Bearbeitung;Probleme mit der Nutzerregistrierung;Sehr hoch;13.05.2024;;;Backend;Hoch;2;8372
+329;07.05.2024;Niedrig;Gelöst;Unzureichende Fehlermeldungen;Mittel;22.05.2024;01.06.2024;;UI;Mittel;1;3849
+330;27.04.2024;Mittel;Neu;Probleme bei der Anzeige von Videos;Hoch;06.05.2024;;;UI;Hoch;0,75;2847
+331;08.05.2024;Hoch;In Bearbeitung;Fehlerhafte Anzeige von Schaltflächen;Sehr hoch;17.05.2024;;;UI;Hoch;0,75;3847
+332;10.05.2024;Mittel;In Bearbeitung;Sicherheitsrichtlinien werden nicht durchgesetzt;Hoch;14.05.2024;;;Sicherheit;Niedrig;1,25;8794

@@ -11,7 +11,7 @@ bug_attributes = [
 
 @app.route('/')
 def home():
-    return render_template('Index.html', bug_attributes=bug_attributes)
+    return render_template('index.html', bug_attributes=bug_attributes)
 
 @app.route('/submit', methods=['POST'])
 def submit():
