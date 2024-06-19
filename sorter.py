@@ -1,3 +1,26 @@
+
+
+            def ein_param():
+                while j >= 0 and key > arr[j][firstAtt] or key == arr[j][firstAtt] and second_key > arr[j][secondAtt]:
+                    arr[j+1], arr[j] = arr[j], arr[j+1]
+                    j -= 1
+            def zwei_param():
+                while j >= 0 and key > arr[j][firstAtt] or key == arr[j][firstAtt] and second_key > arr[j][secondAtt]:
+                    arr[j+1], arr[j] = arr[j], arr[j+1]
+                    j -= 1
+
+            def drei_param():
+                while j >= 0 and key > arr[j][firstAtt] or key == arr[j][firstAtt] and second_key > arr[j][secondAtt]:
+                    arr[j+1], arr[j] = arr[j], arr[j+1]
+                    j -= 1
+
+            def vier_param():
+                while j >= 0 and key > arr[j][firstAtt] or key == arr[j][firstAtt] and second_key > arr[j][secondAtt]:
+                    arr[j+1], arr[j] = arr[j], arr[j+1]
+                    j -= 1
+
+
+
 def insertionSort(arr, firstAtt, secondAtt):
     n = len(arr)
       
@@ -10,9 +33,10 @@ def insertionSort(arr, firstAtt, secondAtt):
             key = arr[i][firstAtt]
             second_key = arr[i][secondAtt]
             j = i - 1
-            while j >= 0 and key > arr[j][firstAtt] or key == arr[j][firstAtt] and second_key > arr[j][secondAtt]:
-                arr[j+1], arr[j] = arr[j], arr[j+1]
-                j -= 1
+
+        
+
+
             arr[j+1][firstAtt] = key
 
 
