@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
-from sorter import insertion_sort
+from sorter import insertion_sort, translate_attributes
 from Bug import read_csv_to_bugs
 
 app = Flask(__name__)
@@ -18,21 +18,27 @@ def home():
     return render_template('index.html', bug_attributes=bug_attributes)
 
 @app.route('/sort', methods=['POST'])
-def submit():
+def sort():
     data = request.json
-    print(data)
     sorting_parameters = data['sorting_parameters']
+    sorting_parameters = [parameter for parameter in sorting_parameters if parameter.strip()] # löscht die leeren parameter aus der liste, falls kein attribut ausgewählt wurde
+    sorting_parameters = translate_attributes(sorting_parameters)  # mapped die Parameter aus dem UI zu den Attribut namen der Bug Klasse
+
+    print(sorting_parameters)
 
 
-    # Bugs einlesen
+    # Bugliste einlesen
     csv_file_path = 'Bugreport_fixed_csv.csv'
     bugs_list = read_csv_to_bugs(csv_file_path)
 
-    for bug in bugs_list:
-        print(f'{vars(bug)} \n \n --------  ')
-    
-    
-    return jsonify(message=f'{data}')
+    # insertionSort funktion mit den sortier parametern aus dem frontend callen
+    sorted_bugs = insertion_sort(bugs_list, *sorting_parameters)
+
+    # neue Liste mit den Werten der Bugs erstellen, damit wir diese als JSON returnen können
+    sorted_bugs_serializable = [vars(bug) for bug in sorted_bugs]
+
+    print(f'serialized bugs: {sorted_bugs_serializable}')
+    return jsonify(sorted_bugs_serializable = sorted_bugs_serializable)
 
 
 
