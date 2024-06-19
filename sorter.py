@@ -31,7 +31,7 @@ csv_file_path = 'Bugreport_fixed_csv.csv'
 bugs_list = read_csv_to_bugs(csv_file_path)
 
 # Sorting bugs by severity, priority, and creation_date using insertion sort
-sorted_bugs = insertion_sort(bugs_list, 'severity', 'priority', 'bug_id')
+sorted_bugs = insertion_sort(bugs_list, 'severity')
 
 # Check the first entries after sorting
 for bug in sorted_bugs:

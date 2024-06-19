@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Liste der Attribute der Bugs-Klasse
 bug_attributes = [
@@ -13,12 +15,14 @@ bug_attributes = [
 def home():
     return render_template('index.html', bug_attributes=bug_attributes)
 
-@app.route('/submit', methods=['POST'])
+@app.route('/sort', methods=['POST'])
 def submit():
     data = request.json
-    attribute1 = data['attribute1']
-    attribute2 = data['attribute2']
-    return jsonify(message=f'You selected {attribute1} and {attribute2}')
+    print(data)
+    # sorting_parameters = []
+    return jsonify(message=f'test')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
