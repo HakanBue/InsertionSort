@@ -1,6 +1,21 @@
 import csv
 from datetime import datetime
-from sorter import insertionSort
+
+class Bug:
+    def __init__(self, bug_id, creation_date, severity, status, description, priority, pl_resolved_date, resolve_date,
+                 category, reproductionrate, sprints, user):
+        self.bug_id = bug_id
+        self.creation_date = creation_date
+        self.severity = severity
+        self.status = status
+        self.description = description
+        self.priority = priority
+        self.pl_resolved_date = pl_resolved_date
+        self.resolve_date = resolve_date
+        self.category = category
+        self.reproductionrate = reproductionrate
+        self.sprints = sprints
+        self.user = user
 
 # Convert date to epoch time
 def date_to_epoch(date_str):
@@ -18,8 +33,6 @@ def map_values(value):
     }
     return mapping.get(value, value)
 
-    # Warum eigene Klasse implementieren, wenn es Dictionaries gibt?
-
 def read_csv_to_bugs(csv_file_path, delimiter=';'):
     bugs_list = []
 
@@ -29,34 +42,20 @@ def read_csv_to_bugs(csv_file_path, delimiter=';'):
             reproductionrate = map_values(row['Reproduktionsrate'])
             if isinstance(reproductionrate, str):
                 reproductionrate = float(reproductionrate.replace(',', '.'))
-            bug = {
-                "bug_id":row['Bug-ID'],
-                "creation_date":date_to_epoch(row['Erstellungsdatum']),
-                "severity":map_values(row['Schweregrad']),
-                "status":row['Status'],
-                "description":row['Beschreibung'],
-                "priority":map_values(row['Priorität']),
-                "pl_resolved_date":date_to_epoch(row['Geplantes Behebungsdatum']),
-                "resolve_date":date_to_epoch(row['Tatsächliches Behebungsdatum']) if row['Tatsächliches Behebungsdatum'] else None,
-                "category":row['Kategorie'],
-                "reproductionrate":reproductionrate,
-                "sprints":float(row['Voraussichtliche Sprints bis Behebung (in Wochen)'].replace(',', '.')),
-                "user":int(row['Beeinträchtigte Nutzer'].replace('.', '').replace(',', ''))
-            }
+            bug = Bug(
+                bug_id=row['Bug-ID'],
+                creation_date=date_to_epoch(row['Erstellungsdatum']),
+                severity=map_values(row['Schweregrad']),
+                status=row['Status'],
+                description=row['Beschreibung'],
+                priority=map_values(row['Priorität']),
+                pl_resolved_date=date_to_epoch(row['Geplantes Behebungsdatum']),
+                resolve_date=date_to_epoch(row['Tatsächliches Behebungsdatum']) if row['Tatsächliches Behebungsdatum'] else None,
+                category=row['Kategorie'],
+                reproductionrate=reproductionrate,
+                sprints=float(row['Voraussichtliche Sprints bis Behebung (in Wochen)'].replace(',', '.')),
+                user=int(row['Beeinträchtigte Nutzer'].replace('.', '').replace(',', ''))
+            )
             bugs_list.append(bug)
 
     return bugs_list
-
-# Example usage
-csv_file_path = 'Bugreport_fixed_csv.csv'
-bugs_list = read_csv_to_bugs(csv_file_path)
-
-test1 = input("Erste Wahl: ")
-test2 = input("Zweite Wahl: ")
-
-#Insertion Sort Funktion mit den 2 zu sortierenden Feldern aufrufen --- Mit der GUI Verknüpfen
-insertionSort(bugs_list, test1, test2)
-
-# Check the first entries
-for bug in bugs_list:
-    print(bug[test1], bug[test2])

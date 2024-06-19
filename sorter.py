@@ -1,46 +1,38 @@
+from Bug import Bug, read_csv_to_bugs
 
-
-            def ein_param():
-                while j >= 0 and key > arr[j][firstAtt] or key == arr[j][firstAtt] and second_key > arr[j][secondAtt]:
-                    arr[j+1], arr[j] = arr[j], arr[j+1]
-                    j -= 1
-            def zwei_param():
-                while j >= 0 and key > arr[j][firstAtt] or key == arr[j][firstAtt] and second_key > arr[j][secondAtt]:
-                    arr[j+1], arr[j] = arr[j], arr[j+1]
-                    j -= 1
-
-            def drei_param():
-                while j >= 0 and key > arr[j][firstAtt] or key == arr[j][firstAtt] and second_key > arr[j][secondAtt]:
-                    arr[j+1], arr[j] = arr[j], arr[j+1]
-                    j -= 1
-
-            def vier_param():
-                while j >= 0 and key > arr[j][firstAtt] or key == arr[j][firstAtt] and second_key > arr[j][secondAtt]:
-                    arr[j+1], arr[j] = arr[j], arr[j+1]
-                    j -= 1
-
-
-
-def insertionSort(arr, firstAtt, secondAtt):
+def insertion_sort(arr, *sort_by):
     n = len(arr)
       
-    # liste muss nicht sortiert werden, falls die liste leer ist oder es nur 1 element gibt
     if n <= 1:
-        return  
- 
-    for i in range(1, n): # Wir fangen beim 2. element (Index 1) an 
-        for i in range(1, len(arr)):
-            key = arr[i][firstAtt]
-            second_key = arr[i][secondAtt]
-            j = i - 1
+        return arr
 
-        
+    for i in range(1, n):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and compare(arr[j], key, sort_by) > 0:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    
+    return arr
 
+def compare(bug1, bug2, sort_by):
+    for attr in sort_by:
+        value1 = getattr(bug1, attr)
+        value2 = getattr(bug2, attr)
+        if value1 < value2:
+            return -1
+        elif value1 > value2:
+            return 1
+    return 0
 
-            arr[j+1][firstAtt] = key
+# Example usage
+csv_file_path = 'Bugreport_fixed_csv.csv'
+bugs_list = read_csv_to_bugs(csv_file_path)
 
+# Sorting bugs by severity, priority, and creation_date using insertion sort
+sorted_bugs = insertion_sort(bugs_list, 'severity', 'priority', 'bug_id')
 
-""" test_list = [73, 52, 66, 41, 12, 18, 4, 19]
-print(test_list)
-insertionSort(test_list)
-print(test_list) """
+# Check the first entries after sorting
+for bug in sorted_bugs:
+    print(f'{vars(bug)} \n')
