@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from sorter import insertion_sort, translate_attributes
-from Bug import read_csv_to_bugs
+from Bug import read_csv_to_bugs, epoch_to_date
 
 app = Flask(__name__)
 CORS(app)
@@ -31,8 +31,17 @@ def sort():
     csv_file_path = 'Bugreport_fixed_csv.csv'
     bugs_list = read_csv_to_bugs(csv_file_path)
 
+    # Daten wieder von UNIX time zu normalem Format konvertieren
+    for bug in bugs_list:
+        bug.creation_date = epoch_to_date(bug.creation_date)
+        bug.pl_resolved_date = epoch_to_date(bug.pl_resolved_date)
+        bug.resolve_date = epoch_to_date(bug.resolve_date)
+
+
     # insertionSort funktion mit den sortier parametern aus dem frontend callen
     sorted_bugs = insertion_sort(bugs_list, *sorting_parameters)
+
+
 
     # neue Liste mit den Werten der Bugs erstellen, damit wir diese als JSON returnen können
     sorted_bugs_serializable = [vars(bug) for bug in sorted_bugs]
