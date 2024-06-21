@@ -13,9 +13,13 @@
             margin-top: 50px;
             text-align: center;
         }
-        select {
-            width: 50%;
-            margin: 10px auto;
+        .table-container {
+            width: 90%;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
         }
         #submitBtn {
             margin-top: 20px;
@@ -44,6 +48,7 @@
     </nav>
     <div class="container">
         <h1>Attribute auswählen</h1>
+
         <form id="attributeForm">
             <div class="form-group">
                 <label for="attribut1">Attribut 1:</label>
@@ -83,6 +88,32 @@
             </div>
             <button type="button" id="submitBtn" class="btn btn-primary" onclick="sort_request()">Sortieren</button>
         </form>
+
+    </div>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Bug-ID</th>
+                <th scope="col">Erstellungsdatum</th>
+                <th scope="col">Schweregrad</th>
+                <th scope="col">Status</th>
+                <th scope="col">Beschreibung</th>
+                <th scope="col">Priorität</th>
+                <th scope="col">Geplantes Behebungsdatum</th>
+                <th scope="col">Tatsächliches Behebungsdatum</th>
+                <th scope="col">Kategorie</th>
+                <th scope="col">Auswirkung</th>
+                <th scope="col">Reproduktionsrate</th>
+                <th scope="col">Sprints bis Behebung (Wochen)</th>
+                <th scope="col">Beeinträchtigte Nutzer</th>
+
+              </tr>
+            </thead>
+            <tbody id="bugsTableBody">
+
+            </tbody>
+          </table>
     </div>
 
     <script>
@@ -126,9 +157,37 @@
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "Access-Control-Allow-Origin": "*"
                 }
-            });
+            })
+            .then(response => response.json())
+            .then(data => {
+                const bugsTableBody = document.getElementById('bugsTableBody');
+                bugsTableBody.innerHTML = '';
+
+                const sortedBugs = data.sorted_bugs_serializable;
+
+                sortedBugs.forEach(bug => {
+                    const row = document.createElement('tr');
+                    
+                    row.innerHTML = `
+                        <td>${bug.bug_id}</td>
+                        <td>${bug.creation_date}</td>
+                        <td>${bug.severity}</td>
+                        <td>${bug.status}</td>
+                        <td>${bug.description}</td>
+                        <td>${bug.priority}</td>
+                        <td>${bug.pl_resolved_date}</td>
+                        <td>${bug.resolve_date ? bug.resolve_date : ''}</td>
+                        // <td>${bug.category}</td>
+                        <td>${bug.reproductionrate}</td>
+                        <td>${bug.sprints}</td>
+                        <td>${bug.user}</td>
+                    `;
+
+                    bugsTableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error:', error));
         }
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
