@@ -22,6 +22,13 @@ def date_to_epoch(date_str):
     dt = datetime.strptime(date_str, '%d.%m.%Y')
     return int(dt.timestamp())
 
+# Converts epoch time to date
+def epoch_to_date(epoch_time):
+    if epoch_time is None:
+        return None
+    dt = datetime.fromtimestamp(epoch_time)
+    return dt.strftime('%d.%m.%Y')
+
 # Map values for severity, priority, and reproduction rate
 def map_values(value):
     mapping = {
