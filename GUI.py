@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from sorter import insertion_sort, translate_attributes
-from Bug import read_csv_to_bugs, epoch_to_date
+from Bug import read_csv_to_bugs, epoch_to_date, reverse_map_values
 
 app = Flask(__name__)
 CORS(app)
@@ -9,7 +9,7 @@ CORS(app)
 # Liste der Attribute der Bugs-Klasse
 bug_attributes = [
     'Bug-ID', 'Erstellungsdatum', 'Schweregrad', 'Status', 'Beschreibung', 'Priorität',
-    'Geplantes Behebungsdatum', 'Tatsächliches Behebungsdatum', 'Kategorie',
+    'Geplantes Behebungsdatum', 'Tatsächliches Behebungsdatum', 'Kategorie', 'Auswirkung',
     'Reproduktionsrate', 'Voraussichtliche Sprints bis Behebung (in Wochen)', 'Beeinträchtigte Nutzer'
 ]
 
@@ -44,10 +44,18 @@ def sort():
 
 
     # neue Liste mit den Werten der Bugs erstellen, damit wir diese als JSON returnen können
-    sorted_bugs_serializable = [vars(bug) for bug in sorted_bugs]
+    sorted_bugs_serializable = []
+    for bug in sorted_bugs:
+        bug_dict = vars(bug)
+        bug_dict['severity'] = reverse_map_values(bug.severity)
+        bug_dict['priority'] = reverse_map_values(bug.priority)
+        bug_dict['reproductionrate'] = reverse_map_values(bug.reproductionrate)
+        bug_dict['effect'] = reverse_map_values(bug.effect)
+        sorted_bugs_serializable.append(bug_dict)
 
+    print(f'DEBUGGING: {sorted_bugs_serializable}')
     print(f'serialized bugs: {sorted_bugs_serializable}')
-    return jsonify(sorted_bugs_serializable = sorted_bugs_serializable)
+    return jsonify(sorted_bugs_serializable=sorted_bugs_serializable)
 
 
 

@@ -13,7 +13,8 @@ attribute_mapping = {
     'Reproduktionsrate': 'reproductionrate',
     'Voraussichtliche Sprints bis Behebung (in Wochen)': 'sprints',
     'Beeinträchtigte Nutzer': 'user',
-    'Bug-ID': 'bug_id'
+    'Bug-ID': 'bug_id',
+    'Auswirkung': 'effect'
 }
 
 def translate_attributes(attributes):

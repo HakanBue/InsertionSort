@@ -3,7 +3,7 @@ from datetime import datetime
 
 class Bug:
     def __init__(self, bug_id, creation_date, severity, status, description, priority, pl_resolved_date, resolve_date,
-                 category, reproductionrate, sprints, user):
+                 category, effect, reproductionrate, sprints, user):
         self.bug_id = bug_id
         self.creation_date = creation_date
         self.severity = severity
@@ -13,6 +13,7 @@ class Bug:
         self.pl_resolved_date = pl_resolved_date
         self.resolve_date = resolve_date
         self.category = category
+        self.effect = effect
         self.reproductionrate = reproductionrate
         self.sprints = sprints
         self.user = user
@@ -29,7 +30,7 @@ def epoch_to_date(epoch_time):
     dt = datetime.fromtimestamp(epoch_time)
     return dt.strftime('%d.%m.%Y')
 
-# Map values for severity, priority, and reproduction rate
+# Mappt die Attribute zu Zahlen, damit wir sie sortieren können
 def map_values(value):
     mapping = {
         'Niedrig': 0,
@@ -37,8 +38,26 @@ def map_values(value):
         'Hoch': 2,
         'Sehr hoch': 3,
         'Kritisch': 4,
+        'Sicherheit': 5,
+        'Backend': 6,
+        'UI': 7
     }
     return mapping.get(value, value)
+
+# Die selbe Funktion in reverse, damit wir im frontend wieder die richtigen Werte anzeigen
+def reverse_map_values(value):
+    reverse_mapping = {
+        0: 'Niedrig',
+        1: 'Mittel',
+        2: 'Hoch',
+        3: 'Sehr hoch',
+        4: 'Kritisch',
+        5: 'Sicherheit',
+        6: 'Backend',
+        7: 'UI'
+    }
+    return reverse_mapping.get(value, value)
+
 
 def read_csv_to_bugs(csv_file_path, delimiter=';'):
     bugs_list = []
@@ -59,6 +78,7 @@ def read_csv_to_bugs(csv_file_path, delimiter=';'):
                 pl_resolved_date=date_to_epoch(row['Geplantes Behebungsdatum']),
                 resolve_date=date_to_epoch(row['Tatsächliches Behebungsdatum']) if row['Tatsächliches Behebungsdatum'] else None,
                 category=row['Kategorie'],
+                effect=map_values(row['Auswirkung']),
                 reproductionrate=reproductionrate,
                 sprints=float(row['Voraussichtliche Sprints bis Behebung (in Wochen)'].replace(',', '.')),
                 user=int(row['Beeinträchtigte Nutzer'].replace('.', '').replace(',', ''))
