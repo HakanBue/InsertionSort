@@ -8,7 +8,7 @@ CORS(app)
 
 # Liste der Attribute der Bugs-Klasse
 bug_attributes = [
-    'Bug-ID', 'Erstellungsdatum', 'Schweregrad', 'Status', 'Beschreibung', 'Priorität',
+    'Bug-ID', 'Erstellungsdatum', 'Schweregrad', 'Status', 'Priorität',
     'Geplantes Behebungsdatum', 'Tatsächliches Behebungsdatum', 'Kategorie', 'Auswirkung',
     'Reproduktionsrate', 'Voraussichtliche Sprints bis Behebung (in Wochen)', 'Beeinträchtigte Nutzer'
 ]

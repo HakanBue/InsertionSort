@@ -117,28 +117,28 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('#attribut1').change(function() {
-                var selectedValue = $(this).val();
-                $('#attribut2 option').each(function() {
-                    $(this).show();
-                    if ($(this).val() == selectedValue) {
-                        $(this).hide();
-                    }
-                });
-            });
+        // $(document).ready(function() {
+        //     $('#attribut1').change(function() {
+        //         var selectedValue = $(this).val();
+        //         $('#attribut2 option').each(function() {
+        //             $(this).show();
+        //             if ($(this).val() == selectedValue) {
+        //                 $(this).hide();
+        //             }
+        //         });
+        //     });
 
-            $('#attribut2').change(function() {
-                var selectedValue = $(this).val();
-                $('#attribut1 option').each(function() {
-                    $(this).show();
-                    if ($(this).val() == selectedValue) {
-                        $(this).hide();
-                    }
-                });
-            });
+        //     $('#attribut2').change(function() {
+        //         var selectedValue = $(this).val();
+        //         $('#attribut1 option').each(function() {
+        //             $(this).show();
+        //             if ($(this).val() == selectedValue) {
+        //                 $(this).hide();
+        //             }
+        //         });
+        //     });
 
-        });
+        // });
 
         function sort_request() {
             let sorting_parameters = [];
