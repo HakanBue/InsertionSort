@@ -57,6 +57,10 @@ def sort():
     print(f'serialized bugs: {sorted_bugs_serializable}')
     return jsonify(sorted_bugs_serializable=sorted_bugs_serializable)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 
 if __name__ == '__main__':
